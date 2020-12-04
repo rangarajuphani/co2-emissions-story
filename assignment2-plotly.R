@@ -199,7 +199,7 @@ server <- function(input, output) {
     
     p12 <- plot_ly(data = golbal_co2_emissions_details) %>%
       add_lines(x=~year, y=~coal_co2, color = ~country,visible = "TRUE", legendgroup=~country, showlegend = FALSE) %>%
-      layout(annotations = list(list(x = 0 , y = 1.2, text = "Co2 Emissions from Coal", showarrow = F, xref='paper', yref='paper', font = list(size = 12, color = 'blue'))),
+      layout(annotations = list(list(x = 0 , y = 1.3, text = "Co2 Emissions from Coal", showarrow = F, xref='paper', yref='paper', font = list(size = 12, color = 'blue'))),
              yaxis = list(title = "million tons"), xaxis = list(title = "Year"))
     
     p13 <- plot_ly(data = golbal_co2_emissions_details) %>%
@@ -209,7 +209,7 @@ server <- function(input, output) {
     
     p14 <- plot_ly(data = golbal_co2_emissions_details) %>%
       add_lines(x=~year, y=~gas_co2, color = ~country,visible = "TRUE", legendgroup=~country, showlegend = FALSE)%>%
-      layout(annotations = list(list(x = 0 , y = 1.2, text = "Co2 Emissions from Gas", showarrow = F, xref='paper', yref='paper', font = list(size = 12, color = 'blue'))),
+      layout(annotations = list(list(x = 0 , y = 2, text = "Co2 Emissions from Gas", showarrow = F, xref='paper', yref='paper', font = list(size = 12, color = 'blue'))),
              yaxis = list(title = "million tons"), xaxis = list(title = "Year"))
     
     p15 <- plot_ly(data = golbal_co2_emissions_details) %>%
@@ -217,7 +217,7 @@ server <- function(input, output) {
       layout(annotations = list(list(x = 0 , y = 1.2, text = "Co2 Emissions from Oil", showarrow = F, xref='paper', yref='paper', font = list(size = 12, color = 'blue'))),
              yaxis = list(title = "million tons"), xaxis = list(title = "Year"))
     
-    subplot(p11, p12, p13, p14, p15, nrows = 3, margin = 0.1, titleY = TRUE, shareX = TRUE, titleX = TRUE, heights = c(0.3, 0.3, 0.4))
+    subplot(p11, p12, p13, p14, p15, nrows = 3, margin = 0.1, titleY = TRUE, shareX = TRUE, titleX = TRUE)
     
   })
   
