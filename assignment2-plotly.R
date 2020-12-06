@@ -108,10 +108,10 @@ ui <- fluidPage(
   h1("Who emits the most CO2?"),
   HTML("<p><ul><li>CO2—also known as greenhouse gases—has become a major concern as climate change becomes a bigger issue.</li>
 <li>The biggest culprit of CO2 emissions for these countries is burning coal, producing gas and oil.</li>
-       <li>We will analyse who emits more co2 globally and also what are biggest culprits for co2 emission in each country.</li></ul></p>"),
+       <li>We will analyse who emits more CO2 globally and also what are biggest culprits for CO2 emission in each country.</li></ul></p>"),
   hr(),
   h2("Who emits the most CO2 each year?"),
-  HTML("<p><ul><li>In the treemap visualization, the annual CO2 emissions of 2108 are shown by country, and aggregated by region & sub-region</li>
+  HTML("<p><ul><li>In the treemap visualization, the annual CO2 emissions of 2018 are shown by country, and aggregated by region & sub-region</li>
        <li>Each inner rectangle represents a country, which are then nested and colored by region and sub-region.</li>
        <li>The size of each rectangle corresponds to its annual CO2 emissions in 2018</li>
        <li>The emissions shown here relate to the country where CO2 is produced (i.e.production-based CO2) , not to where the goods and services that generate emissions are finally consumed.</li>
@@ -123,18 +123,18 @@ ui <- fluidPage(
   hr(),
   h2("How did CO2 emissions change over time?"),
   HTML("<p><ul><li>The distribution of emissions has changed significantly over time.</li>
-       <li>The UK was the largest Co2 emitter until 1888, when it was overtaken by the US in 1900's and in the recent year from 2000 China has become the world’s largest emitters.</li>
+       <li>The UK was the largest CO2 emitter until 1888, when it was overtaken by the US in 1900's and in the recent year from 2000 China has become the world’s largest emitters.</li>
        <li>UK was the first country to industrialize, contributed to massive improvements in living standards for much of its population.</li>
        <li>Many of the world’s largest emitters today are in Asia. However, Asia’s rapid rise in emissions has only occurred in very recent decades. This too has been a by-product of massive improvements in living standards.</li>
-       <li>I have considered top four CO2 emitters in recent year (China, United States, India, Russia and United Kingdom (one of the 28 EU countries) and analysed how co2 emissions changed over years.</li>
-       <li>The plot shows co2 emissions from 1960 to 2018, the plot shows United States was the largest co2 emitter and suddenly in 2000's because of massive improvements to living standards.</li></ul></p>"),
+       <li>I have considered top four CO2 emitters in recent year (China, United States, India, Russia and United Kingdom (one of the 28 EU countries) and analysed how CO2 emissions changed over years.</li>
+       <li>The plot shows CO2 emissions from 1960 to 2018, the plot shows United States was the largest CO2 emitter and suddenly in 2000's because of massive improvements to living standards.</li></ul></p>"),
   plotlyOutput("distPlot1"),
   hr(),
   h2("How are countries emitting CO2?"),
   HTML("<p><ul><li>The below graph show the CO2 emission for each country to produce Gas, Oil, Flaring, Cement and buring Coal. </li>
        <li>Buring coal for generation of power in most countries contribiutes to most CO2 emissions and next comes production of oil & gas.</li>
-       <li>The major culprit of co2 emissions in China is buring coal and producing cement</li>
-       <li>The major culprit of co2 emissions in US is producing gas and oil cement</li></ul></p>"),
+       <li>The major culprit of CO2 emissions in China is buring coal and producing cement</li>
+       <li>The major culprit of CO2 emissions in US is producing gas and oil cement</li></ul></p>"),
   plotlyOutput("distPlot2"),
   # plotlyOutput("distPlot3"),
   # plotlyOutput("distPlot4"),
@@ -145,7 +145,7 @@ ui <- fluidPage(
   HTML("<p>Whilst all countries must work collectively, action from the very top emitters will be essential to reduce cabron footproint. China, the USA, India, Russia and 28 countries of the EU account for more than half of global emissions. Without commitment from these largest emitters, the world will not come close to meeting its global targets.</p>"),
   hr(),
   h2("Data Source"),
-  a(href="https://github.com/owid/co2-data", "co2 data")
+  a(href="https://github.com/owid/CO2-data", "CO2 data")
 )
 
 
@@ -161,7 +161,7 @@ server <- function(input, output) {
                    "<br><b>Sub Regions</b> = ",plotly_treepmap$sub.region,
                    "<br><b>Country</b> = ", plotly_treepmap$countries,
                    "<br><b>CO2 emissions (billion tons)</b> = ", plotly_treepmap$values,
-                   "<br><b>2018 global co2 emission %</b> = ", plotly_treepmap$percentage),
+                   "<br><b>2018 global CO2 emission %</b> = ", plotly_treepmap$percentage),
       textinfo = "text",
       hoverinfo = "text",
       colors = "RdYlBu") %>%
@@ -194,27 +194,27 @@ server <- function(input, output) {
     ##
     p11 <- plot_ly(data = golbal_co2_emissions_details) %>%
       add_lines(x=~year, y=~cement_co2, color = ~country, visible = "TRUE", legendgroup=~country)%>%
-      layout(annotations = list(list(x = 0 , y = 1.2, text = "Co2 Emissions from Cement", showarrow = F, xref='paper', yref='paper', font = list(size = 12, color = 'blue'))),
+      layout(annotations = list(list(x = 0 , y = 1.2, text = "CO2 Emissions from Cement", showarrow = F, xref='paper', yref='paper', font = list(size = 12, color = 'blue'))),
              yaxis = list(title = "million tons"), xaxis = list(title = "Year"))
     
     p12 <- plot_ly(data = golbal_co2_emissions_details) %>%
       add_lines(x=~year, y=~coal_co2, color = ~country,visible = "TRUE", legendgroup=~country, showlegend = FALSE) %>%
-      layout(annotations = list(list(x = 0 , y = 1.3, text = "Co2 Emissions from Coal", showarrow = F, xref='paper', yref='paper', font = list(size = 12, color = 'blue'))),
+      layout(annotations = list(list(x = 0 , y = 1.3, text = "CO2 Emissions from Coal", showarrow = F, xref='paper', yref='paper', font = list(size = 12, color = 'blue'))),
              yaxis = list(title = "million tons"), xaxis = list(title = "Year"))
     
     p13 <- plot_ly(data = golbal_co2_emissions_details) %>%
       add_lines(x=~year, y=~flaring_co2, color = ~country,visible = "TRUE", legendgroup=~country, showlegend = FALSE)%>%
-      layout(annotations = list(list(x = 0 , y = 1.2, text = "Co2 Emissions from Flaring", showarrow = F, xref='paper', yref='paper', font = list(size = 12, color = 'blue'))),
+      layout(annotations = list(list(x = 0 , y = 1.2, text = "CO2 Emissions from Flaring", showarrow = F, xref='paper', yref='paper', font = list(size = 12, color = 'blue'))),
              yaxis = list(title = "million tons"), xaxis = list(title = "Year"))
     
     p14 <- plot_ly(data = golbal_co2_emissions_details) %>%
       add_lines(x=~year, y=~gas_co2, color = ~country,visible = "TRUE", legendgroup=~country, showlegend = FALSE)%>%
-      layout(annotations = list(list(x = 0 , y = 2, text = "Co2 Emissions from Gas", showarrow = F, xref='paper', yref='paper', font = list(size = 12, color = 'blue'))),
+      layout(annotations = list(list(x = 0 , y = 2, text = "CO2 Emissions from Gas", showarrow = F, xref='paper', yref='paper', font = list(size = 12, color = 'blue'))),
              yaxis = list(title = "million tons"), xaxis = list(title = "Year"))
     
     p15 <- plot_ly(data = golbal_co2_emissions_details) %>%
       add_lines(x=~year, y=~oil_co2, color = ~country,visible = "TRUE", legendgroup=~country, showlegend = FALSE)%>%
-      layout(annotations = list(list(x = 0 , y = 1.2, text = "Co2 Emissions from Oil", showarrow = F, xref='paper', yref='paper', font = list(size = 12, color = 'blue'))),
+      layout(annotations = list(list(x = 0 , y = 1.2, text = "CO2 Emissions from Oil", showarrow = F, xref='paper', yref='paper', font = list(size = 12, color = 'blue'))),
              yaxis = list(title = "million tons"), xaxis = list(title = "Year"))
     
     subplot(p11, p12, p13, p14, p15, nrows = 3, margin = 0.1, titleY = TRUE, shareX = TRUE, titleX = TRUE)
